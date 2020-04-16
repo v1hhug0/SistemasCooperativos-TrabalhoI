@@ -3,3 +3,62 @@
     border: 0;
     margin: 0;
 }
+
+body {
+    background-image: url(./img/img.jpg);
+    background-size: cover;
+}
+
+#title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding-top: 10%;
+    padding-bottom: 2%;
+    text-align: center;
+}
+
+#resultado {
+    padding-left: 2%;
+    font-family: cursive;
+}
+
+#paragrafo {
+    padding: 0;
+    text-align: center;
+    padding-bottom: 2%;
+    font-family: cursive;
+    font-size: 110%;
+}
+
+#corpo {
+    padding-right: 50%;
+}
+
+#tabela {
+    width: 50%;
+}
+
+#divTabela {
+    padding-left: 5%;
+}
+
+#peso {
+    font-family: cursive;
+    font-size: 110%;
+}
+
+#altura {
+    font-family: cursive;
+    font-size: 110%;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+table td {
+    border: none !important;
+}

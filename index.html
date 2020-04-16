@@ -4,32 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>IMC</title>
 </head>
 
 <body>
-    <div>
-        <h1>Índice de Massa Corporal</h1>
-        <p>O IMC é um método simples e rápido que calcula o índice de gordura no corpo.</p>
-        <p>Experimente agora mesmo! Insira seu peso e altura nos campos correspondentes.</p>
-    </div>
-    <div>
-        Peso: <input type="number" id="peso">
-        Altura: <input type="number" id="altura">
-        <input type="hidden" id="res">
-        <button onclick="imc2(),resultado()" id="btn">Calcular</button>
-    </div>
-    <script>
-        function imc2() {
-            var imc = document.getElementById("peso").value / (Math.pow(document.getElementById("altura").value, 2));
-            document.getElementById("res").value = imc;
-        }
-        function resultado() {
+    <div id="corpo">
+        <div>
+            <h1 id="title">Índice de Massa Corporal</h1>
+            <p id="paragrafo">O IMC é um método simples e rápido que calcula o índice de gordura no corpo. <br>
+                Experimente agora mesmo! Insira seu peso e altura nos campos correspondentes.</p>
+        </div>
+        <div id="divTabela">
+            <table id="tabela" class="table">
+                <tr>
+                    <td id="peso">Peso:</td>
+                    <td><input class="form-control" type="number" id="numpeso" autofocus required
+                            placeholder="Insira seu peso aqui">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="altura">Altura:</td>
+                    <td><input class="form-control" type="number" id="numaltura" required
+                            placeholder="Insira sua altura aqui"></td>
+                </tr>
+                <tr>
+                    <td><button class="btn btn-dark" onclick="imc(),resultado()" id="btn">Calcular</button></td>
+                </tr>
+            </table>
+            <input type="hidden" id="res">
+        </div>
+        <script>
             var p = document.createElement("p");
-            p.innerHTML = document.getElementById("res").value;
+            p.setAttribute("id", "resultado");
             document.body.appendChild(p);
-        }
-    </script>
+            function imc() {
+                var imc = document.getElementById("numpeso").value / (Math.pow(document.getElementById("numaltura").value, 2));
+                document.getElementById("res").value = imc;
+            }
+            function resultado() {
+                if (document.getElementById("res").value < 17) {
+                    p.innerHTML = "IMC = " + Math.round(document.getElementById("res").value) + ", você está muito abaixo do peso!";
+                } else if (document.getElementById("res").value >= 17 && document.getElementById("res").value <= 18.49) {
+                    p.innerHTML = "IMC = " + Math.round(document.getElementById("res").value) + ", você está abaixo do peso!";
+                } else if (document.getElementById("res").value >= 18.50 && document.getElementById("res").value <= 24.99) {
+                    p.innerHTML = "IMC = " + Math.round(document.getElementById("res").value) + ", você está com peso normal!";
+                } else if (document.getElementById("res").value >= 25 && document.getElementById("res").value <= 29.99) {
+                    p.innerHTML = "IMC = " + Math.round(document.getElementById("res").value) + ", você está acima do peso!";
+                } else if (document.getElementById("res").value >= 30 && document.getElementById("res").value <= 34.99) {
+                    p.innerHTML = "IMC = " + Math.round(document.getElementById("res").value) + ", você está moderamente obeso!";
+                } else if (document.getElementById("res").value >= 35 && document.getElementById("res").value <= 39.99) {
+                    p.innerHTML = "IMC = " + Math.round(document.getElementById("res").value) + ", você está severamente obeso!";
+                } else if (document.getElementById("res").value >= 40) {
+                    p.innerHTML = "IMC = " + Math.round(document.getElementById("res").value) + ", você está com obesidade mórbida!";
+                }
+            }
+        </script>
+    </div>
 </body>
 
 </html>
