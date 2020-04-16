@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+</head>
+
+<body>
+    <div>
+        <h1>Índice de Massa Corporal</h1>
+        <p>O IMC é um método simples e rápido que calcula o índice de gordura no corpo.</p>
+        <p>Experimente agora mesmo! Insira seu peso e altura nos campos correspondentes.</p>
+    </div>
+    <div>
+        Peso: <input type="number" id="peso">
+        Altura: <input type="number" id="altura">
+        <input type="hidden" id="res">
+        <button onclick="imc2(),resultado()" id="btn">Calcular</button>
+    </div>
+    <script>
+        function imc2() {
+            var imc = document.getElementById("peso").value / (Math.pow(document.getElementById("altura").value, 2));
+            document.getElementById("res").value = imc;
+        }
+        function resultado() {
+            var p = document.createElement("p");
+            p.innerHTML = document.getElementById("res").value;
+            document.body.appendChild(p);
+        }
+    </script>
+</body>
+
+</html>
