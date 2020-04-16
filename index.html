@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>IMC</title>
 </head>
 
@@ -14,21 +13,18 @@
     <div id="corpo">
         <div>
             <h1 id="title">Índice de Massa Corporal</h1>
-            <p id="paragrafo">O IMC é um método simples e rápido que calcula o índice de gordura no corpo. <br>
-                Experimente agora mesmo! Insira seu peso e altura nos campos correspondentes.</p>
+            <p id="paragrafo">O IMC é um método fácil e rápido que calcula o índice de gordura no corpo. <br> Experimente agora mesmo! Insira seu peso e altura nos campos correspondentes.</p>
         </div>
         <div id="divTabela">
             <table id="tabela" class="table">
                 <tr>
                     <td id="peso">Peso:</td>
-                    <td><input class="form-control" type="number" id="numpeso" autofocus required
-                            placeholder="Insira seu peso aqui">
+                    <td><input class="form-control" type="number" id="numpeso" autofocus required placeholder="Insira seu peso aqui">
                     </td>
                 </tr>
                 <tr>
                     <td id="altura">Altura:</td>
-                    <td><input class="form-control" type="number" id="numaltura" required
-                            placeholder="Insira sua altura aqui"></td>
+                    <td><input class="form-control" type="number" id="numaltura" required placeholder="Insira sua altura aqui"></td>
                 </tr>
                 <tr>
                     <td><button class="btn btn-dark" onclick="imc(),resultado()" id="btn">Calcular</button></td>
@@ -40,10 +36,12 @@
             var p = document.createElement("p");
             p.setAttribute("id", "resultado");
             document.body.appendChild(p);
+
             function imc() {
                 var imc = document.getElementById("numpeso").value / (Math.pow(document.getElementById("numaltura").value, 2));
                 document.getElementById("res").value = imc;
             }
+
             function resultado() {
                 if (document.getElementById("res").value < 17) {
                     p.innerHTML = "IMC = " + Math.round(document.getElementById("res").value) + ", você está muito abaixo do peso!";
